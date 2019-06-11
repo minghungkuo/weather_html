@@ -1,4 +1,11 @@
-
+.header {
+  background-image: url(headerBG.jpg);
+  border-radius: 0;
+  height: 100vh;
+  margin-bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
     
 .table {
   color: white;

@@ -118,7 +118,7 @@ $(document).ready(function() {
   
         while (day < 14) {
   
-          dateList += '<th width="12.5%">' + WxElement[day].startTime.substr(5, 5).replace('-', '/') + '</th>';
+          dateList += '<th width="11%">' + WxElement[day].startTime.substr(5, 5).replace('-', '/') + '</th>';
   
           dayList += '<td>'
           dayList += '<p class="text-truncate">' + WxElement[day].parameter.parameterName + '</p>';
