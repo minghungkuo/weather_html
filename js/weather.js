@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   var apiKey = 'CWB-27AB0577-FC97-4B2F-8021-6DC6988C5E15';
   
+  // Get city option
   $(function() {
   
     $.ajax({
@@ -17,20 +18,21 @@ $(document).ready(function() {
           //console.log(key, value.locationName);
           option += "<option value=" + key + ">" + value.locationName + "</option>";
           $('#city').html(option);
+
         });
   
       },
       complete: function(data) {
   
         var cityCode = $('#city').val();
-  
+
         today(cityCode, apiKey); // 一般天氣預報-今明36小時天氣預報
         week(cityCode, apiKey); // 一般天氣預報-一週縣市天氣預報
       }
     });
   });
   
-  
+  // change #city to reload weather of city
   $(document).on('change', '#city', function() {
   
     $('.overlay').removeClass('d-none');
@@ -39,9 +41,8 @@ $(document).ready(function() {
     today(cityCode, apiKey);
     week(cityCode, apiKey);
   
-  
   });
-  
+
   // F-C0032-001 一般天氣預報-今明36小時天氣預報 desc Wx(天氣現象)、MaxT(最高溫度)、MinT(最低溫度)、CI(舒適度)、PoP(降雨機率)	
   function today(cityCode, apiKey) {
   
@@ -88,7 +89,6 @@ $(document).ready(function() {
     });
   }
   
-  
   // F-C0032-005 一般天氣預報-一週縣市天氣預報 desc Wx(天氣現象)、MaxT(最高溫度)、MinT(最低溫度)
   function week(cityCode, apiKey) {
   
@@ -115,14 +115,13 @@ $(document).ready(function() {
         var nightList = '';
         var step = 2;
   
-  
         while (day < 14) {
   
-          dateList += '<th width="11%">' + WxElement[day].startTime.substr(5, 5).replace('-', '/') + '</th>';
+          dateList += '<th width="12.5%">' + WxElement[day].startTime.substr(5, 5).replace('-', '/') + '</th>';
   
           dayList += '<td>'
           dayList += '<p class="text-truncate">' + WxElement[day].parameter.parameterName + '</p>';
-          dayList += '<p>' + MinTElement[day].parameter.parameterName + ' - ' + MaxTElement[day].parameter
+          dayList += '<p class="text-truncate">' + MinTElement[day].parameter.parameterName + ' - ' + MaxTElement[day].parameter
             .parameterName + '℃</p>';
           dayList += '</td>';
   
@@ -133,8 +132,8 @@ $(document).ready(function() {
         while (night < 14) {
   
           nightList += '<td>'
-          nightList += '<p>' + WxElement[night].parameter.parameterName + '</p>';
-          nightList += '<p>' + MinTElement[night].parameter.parameterName + ' - ' + MaxTElement[night].parameter
+          nightList += '<p class="text-truncate">' + WxElement[night].parameter.parameterName + '</p>';
+          nightList += '<p class="text-truncate">' + MinTElement[night].parameter.parameterName + ' - ' + MaxTElement[night].parameter
             .parameterName + '℃</p>';
           nightList += '</td>';
   

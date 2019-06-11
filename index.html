@@ -17,15 +17,24 @@
 </head>
 
 <body class="header">
-    <div class="overlay">
-      <div class="overlay__inner">
-        <div class="overlay__content">
-          <span class="spinner"></span>
-        </div>
+
+  <div class="overlay">
+    <div class="overlay__inner">
+      <div class="overlay__content">
+        <span class="spinner"></span>
       </div>
     </div>
+  </div>
 
   <div class="container pt-5">
+
+    <div class="row mb-3">
+      <div class="col-12 col-md-4 offset-md-8">
+        <select name="city" id="city" class="form-control"></select>
+      </div>
+      <!-- / .col-12 -->
+    </div>
+    <!-- / .row -->
 
     <div class="row mb-3">
       <div class="col-12">
@@ -45,7 +54,7 @@
 
           </table>
         </div>
-      <!-- / .card -->
+        <!-- / .card -->
       </div>
       <!-- / .col-12 .col-md-4 -->
     </div>
@@ -55,11 +64,11 @@
       <div class="col-12">
         <h2 class="text-white">一週預報</h2>
         <div class="card p-2">
-          <table class="table table-bordered table-responsive">
+          <table class="table table-bordered">
             <thead>
               <tr>
-                <th id="weekCityName"></th>
-                <th id="weekDate" width="10%"></th>
+                <th id="weekCityName" width="12.5%"></th>
+                <th id="weekDate"></th>
               </tr>
             </thead>
 
@@ -81,16 +90,6 @@
       <!-- / .col-12 -->
     </div>
     <!-- / .row -->
-
-    <div class="row mb-3">
-      <div class="col-12 ">
-        <select name="city" id="city" class="form-control">
-        </select>
-      </div>
-      <!-- / .col-12 -->
-    </div>
-    <!-- / .row -->
-
 
   </div>
   <!-- / .container -->
